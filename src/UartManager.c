@@ -43,11 +43,14 @@ void StartUart3Manager(void)
 {
 #ifdef __STM32__	
  uart3Descriptor.chanell              = USART3;
-#else
-#ifdef __LINX__
- uart3Descriptor.chanell              = (uint8_t*)"COM3";
 #endif
-#endif 
+#ifdef __LINX__
+ uart3Descriptor.chanell              = 0x06;
+#endif
+#ifdef __WINX__
+ uart3Descriptor.chanell              = 0x06;
+#endif
+
  uart3Descriptor.baudrate             = USART_BAUDRATE_38400;
  uart3Descriptor.dataLength           = UART_DATA8;
  uart3Descriptor.stopbits             = UART_STOPBIT_1;
@@ -67,12 +70,12 @@ void StartUart1Manager(void)
  uart1Descriptor.chanell              = USART1;
 #endif
 #ifdef __LINX__
- uart1Descriptor.chanell              = 0x01;
+ uart1Descriptor.chanell              = 0x06;
 #endif 
 #ifdef __WINX__
- uart1Descriptor.chanell              = 0x01;
+ uart1Descriptor.chanell              = 0x06;
 #endif
- uart1Descriptor.baudrate             = (uart_speed_index == 0)?USART_BAUDRATE_9600:
+ /*uart1Descriptor.baudrate             = (uart_speed_index == 0)?USART_BAUDRATE_9600:
                                           (uart_speed_index == 1)?USART_BAUDRATE_14400:
                                            (uart_speed_index == 2)?USART_BAUDRATE_19200:
                                             (uart_speed_index == 3)?USART_BAUDRATE_38400:
@@ -81,7 +84,9 @@ void StartUart1Manager(void)
                                                (uart_speed_index == 6)?USART_BAUDRATE_115200:
                                                 (uart_speed_index == 7)?USART_BAUDRATE_128000:
                                                                USART_BAUDRATE_9600;
-															   
+	*/
+ uart1Descriptor.baudrate             = USART_BAUDRATE_9600;													   
+ 
  uart1Descriptor.dataLength           = UART_DATA8;
  uart1Descriptor.stopbits             = UART_STOPBIT_1;
  uart1Descriptor.parity               = UART_PARITY_NONE;
