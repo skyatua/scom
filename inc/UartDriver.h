@@ -19,6 +19,12 @@
 #ifdef __WINX__
 #include <windows.h>
 #endif
+
+#ifdef __LINX__
+#include <unistd.h>			
+#include <fcntl.h>			
+#include <termios.h>		
+#endif
    
 typedef enum
 {
@@ -50,14 +56,11 @@ USART_BAUDRATE_128000 = CBR_128000,
 USART_BAUDRATE_256000 = CBR_256000,
 #endif
 #ifdef __LINX__
-USART_BAUDRATE_9600   = 9600,  
-USART_BAUDRATE_14400  = 14400,
-USART_BAUDRATE_19200  = 19200,
-USART_BAUDRATE_38400  = 38400,
-USART_BAUDRATE_56000  = 56000,
-USART_BAUDRATE_57600  = 57600,
-USART_BAUDRATE_115200 = 115200,
-USART_BAUDRATE_128000 = 128000,
+USART_BAUDRATE_9600   = B9600,  
+USART_BAUDRATE_19200  = B19200,
+USART_BAUDRATE_38400  = B38400,
+USART_BAUDRATE_57600  = B57600,
+USART_BAUDRATE_115200 = B115200,
 #endif
 }baudrate_t;   
    
@@ -68,8 +71,10 @@ UART_DATA8       = USART_WordLength_8b,
 UART_DATA9       = USART_WordLength_9b
 #endif
 #ifdef __LINX__  
-UART_DATA8       = 0x08,
-UART_DATA9       = 0x09 
+UART_DATA5       = CS5,
+UART_DATA6       = CS6, 
+UART_DATA7       = CS7,
+UART_DATA8       = CS8 
 #endif
 #ifdef __WINX__
 UART_DATA5       = DATABITS_5,

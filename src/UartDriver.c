@@ -4,6 +4,12 @@
 #include <windows.h>
 #endif
 
+#ifdef __LINX__
+#include <unistd.h>			
+#include <fcntl.h>			
+#include <termios.h>		
+#endif
+
 typedef enum
 {
 Free,
@@ -476,6 +482,51 @@ if(0x06 == descriptor->chanell)
   }
 
 #endif
+
+#ifdef __LINX__
+  uart6.pRxBuff=(uint8_t *)descriptor->rxBuff;
+  uart6.RxLen=descriptor->rxBuffSize;
+  uart6.TxCallback=descriptor->txCallback;
+  uart6.RxCallback=descriptor->rxCallback;
+  uart6.status=Free;
+  uart6.RxFirst=0;
+  uart6.RxLast=0;
+  uart6.hSerial = -1;
+  
+  int hSerial = open("/dev/ttyAMA0", O_RDWR | O_NOCTTY | O_NDELAY);
+  if (hSerial == -1)
+  {
+	  return -1;
+  	  } 
+	//CONFIGURE THE UART
+	//The flags (defined in termios.h - see http://pubs.opengroup.org/onlinepubs/007908799/xsh/termios.h.html):
+	//	Baud rate:- B1200, B2400, B4800, B9600, B19200, B38400, B57600, B115200, B230400, B460800, B500000, B576000, B921600, B1000000, B1152000, B1500000, B2000000, B2500000, B3000000, B3500000, B4000000
+	//	CSIZE:- CS5, CS6, CS7, CS8
+	//	CLOCAL - Ignore modem status lines
+	//	CREAD - Enable receiver
+	//	IGNPAR = Ignore characters with parity errors
+	//	ICRNL - Map CR to NL on input
+	//	PARENB - Parity enable
+	//	PARODD - Odd parity (else even)
+		    	  
+  struct termios options;
+  tcgetattr(hSerial, &options);
+  cfsetispeed(&options, (uint32_t)descriptor->baudrate );
+  cfsetospeed(&options, (uint32_t)descriptor->baudrate );     
+  options.c_cflag = (uint32_t)descriptor->baudrate | 
+                     descriptor->dataLength | 
+					 CLOCAL | 
+					 CREAD; 
+  options.c_iflag = IGNPAR |
+                     ICRNL;  
+  options.c_oflag = 0;
+  tcflush(hSerial, TCIFLUSH);
+  tcsetattr(hSerial, TCSANOW, &options);
+  
+  uart6.hSerial = hSerial;
+  uart6.InitComplete=1;
+#endif
+
 return 0;
 }
 
@@ -739,6 +790,49 @@ if (0==ExpectedInt)//Åñëè äëÿ ïðåðûâàíèÿ íå îïèñàíî ä
   }
 #endif 
 
+#ifdef __LINX__
+ static uint8_t *p;
+  uint8_t buff;
+  uint32_t cnt;
+  
+  if ( uart6.hSerial != -1 ) 
+  {
+	// write data  
+	if (uart6.TxLen)
+	 {
+      //////	
+      printf("\n-> ");  
+	  uint8_t aa = 0;
+	  for (aa = 0; aa < uart6.TxLen; aa++)
+        { printf("%02X ", ((uint8_t*)uart6.pTxBuff)[aa] ); }
+	  ///////
+	  if((cnt = write( uart6.hSerial, uart6.pTxBuff, uart6.TxLen)) > 0 )	
+	  {
+	   uart6.TxLen -= cnt;
+	   if (!uart6.TxLen)
+	   { 
+	     uart6.status=Free;  
+		 (*uart6.TxCallback)(); 
+	    }
+	   }
+      }
+	  
+    // read data
+	do{
+		cnt = read( uart6.hSerial, &buff, 1 );
+		
+		if ( cnt )
+		{
+			if(!uart6.RxLast++)
+				p=uart6.pRxBuff;
+			*p++=buff;
+
+			if(uart6.RxLast >= uart6.RxLen)
+				uart6.RxLast=0;
+		  }
+		}while(cnt);
+  }
+#endif
 }
 
 void test_wr( void )
@@ -974,6 +1068,33 @@ if(uart6.InitComplete)//Åñëè 6 UART ïðîèíèöèàëèçèðîâàí
     }
   }
 #endif
+
+#ifdef __LINX__
+uint16_t RxLen_=0;
+uint16_t RxFirst_=0;
+uint16_t RxLast_=0;
+if(uart6.InitComplete)//Åñëè 6 UART ïðîèíèöèàëèçèðîâàí
+  {
+   RxLast_  = uart6.RxLast;
+   RxFirst_ = uart6.RxFirst;
+  
+  if(RxFirst_ != RxLast_)//Àíàëèç âõîäíîãî ïîòîêà áàéò
+    {
+    if(RxLast_>RxFirst_)//Íîðìàëüíûé ðåæèì
+      {
+      uart6.RxFirst = RxLast_;
+      RxLen_=RxLast_ - RxFirst_;
+      (*uart6.RxCallback)(uart6.pRxBuff+RxFirst_,RxLen_);
+      }
+    else
+      {
+      uart6.RxFirst = 0;
+      RxLen_=uart6.RxLen - RxFirst_;
+      (*uart6.RxCallback)(uart6.pRxBuff+RxFirst_,RxLen_);
+      }
+    }
+  }
+#endif
 }
 
 
@@ -1166,6 +1287,19 @@ if(0x06==uartDescriptor->chanell)
       }
   }
 #endif
+
+#ifdef __LINX__
+if(0x06==uartDescriptor->chanell)
+  {
+  if(Free==uart6.status)
+      {
+      uart6.pTxBuff=p;
+      uart6.TxLen=len; // -1
+      uart6.status=Busy;
+      }
+  }
+#endif
+
 }
 
 void CloseUart(UartDescriptor_t * uartDescriptor)
@@ -1176,6 +1310,16 @@ void CloseUart(UartDescriptor_t * uartDescriptor)
 	  if (uart6.hSerial != -1)
 	  {
 		  CloseHandle((HANDLE)uart6.hSerial);
+	  }
+  }
+#endif  
+
+#ifdef __LINX__
+  if (0x06 == uartDescriptor->chanell)
+  {
+	  if (uart6.hSerial != -1)
+	  {
+		  close(uart6.hSerial);
 	  }
   }
 #endif  

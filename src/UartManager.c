@@ -119,7 +119,7 @@ void StartUart6Manager(void)
  uart6Descriptor.chanell              = USART6;
 #endif 
 #ifdef __LINX__
- uart6Descriptor.chanell              = 0x01;
+ uart6Descriptor.chanell              = 0x06;
 #endif
 #ifdef __WINX__
  uart6Descriptor.chanell              = 0x06;
@@ -283,6 +283,10 @@ void StopUart6Manager()
 #ifdef __WINX__
  	CloseUart(&uart6Descriptor);
 #endif
+#ifdef __LINX__
+ 	CloseUart(&uart6Descriptor);
+#endif
+
 }
 
 
