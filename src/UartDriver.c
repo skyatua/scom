@@ -743,12 +743,13 @@ if (0==ExpectedInt)//Åñëè äëÿ ïðåðûâàíèÿ íå îïèñàíî ä
 
 void test_wr( void )
 {
-	uint8_t buff[5] = {0x50,0xFF,0x20,0x98,0x41};
+/*	uint8_t buff[5] = {0x50,0xFF,0x20,0x98,0x41};
 	uint32_t cnt;
 	 if (WriteFile((HANDLE)uart6.hSerial, buff, 5, &cnt, 0))
 	 {
 		 printf("\nwriting");
 		 }
+		  * */
 	}
 
 void USART2_IRQHandler(void)
