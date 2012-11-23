@@ -436,7 +436,7 @@ if(0x06 == descriptor->chanell)
   uart6.hSerial = -1;
   
   int hSerial = (int) CreateFile
-	(	"COM8",
+	(	"COM4",
 	    GENERIC_READ | GENERIC_WRITE,
 		0,
 		0,

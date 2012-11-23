@@ -15,7 +15,7 @@ static void ArchConfirm(ArchConfirm_t * Confirm);
 void MTBusManagerStart(void)
 {
 ServerA.SenderFunct               = Uart6SendPacket;
-ServerA.MaxNetAddr                = 3;
+ServerA.MaxNetAddr                = 5;
 ServerA.MaxResponseTime           = 750; // 500
 ServerA.RequestEnable             = 1;
 ServerA.ServiceKeyEnable          = 0;//Çàïðåòèòü ñåðâèñíûå êëþ÷è
