@@ -16,11 +16,11 @@ void MTBusManagerStart(void)
 {
 ServerA.SenderFunct               = Uart6SendPacket;
 ServerA.MaxNetAddr                = 5;
-ServerA.MaxResponseTime           = 750; // 500
+ServerA.MaxResponseTime           = 100;//750; // 500
 ServerA.RequestEnable             = 1;
 ServerA.ServiceKeyEnable          = 0;//Çàïðåòèòü ñåðâèñíûå êëþ÷è
 ServerA.NotResponceCnt            = 5;   //3
-ServerA.MaxReceiveInterval        = 800;
+ServerA.MaxReceiveInterval        = 100;//800;
 ServerA.ReceiveIntervalMultFactor = 1;
 ServerA.FlowAnaliserTimeOut       = 20;
 ServerA.WriteBuffStorageEnable    = 1;

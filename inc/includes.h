@@ -1,6 +1,8 @@
 #ifndef _includes_h
 #define _includes_h
 
+//#define _DEBUG_UART_
+
 //#define __STM32__  // use in STM32
 //#define __LINX__   // use in Linux
 #define __WINX__     // use in Win32
@@ -23,6 +25,7 @@
 #include "TBusManager.h"
 #include "UartManager.h"
 #include "UartDriver.h"
+#include "nd.h"
 
 //#include "Archive.h"
 

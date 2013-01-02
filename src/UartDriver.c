@@ -436,7 +436,7 @@ if(0x06 == descriptor->chanell)
   uart6.hSerial = -1;
   
   int hSerial = (int) CreateFile
-	(	"COM4",
+	(	"COM8",//"COM4",
 	    GENERIC_READ | GENERIC_WRITE,
 		0,
 		0,
@@ -757,10 +757,12 @@ if (0==ExpectedInt)//Åñëè äëÿ ïðåðûâàíèÿ íå îïèñàíî ä
 	if (uart6.TxLen)
 	 {
       //////	
+#ifdef _DEBUG_UART_	  
       printf("\n-> ");  
 	  uint8_t aa = 0;
 	  for (aa = 0; aa < uart6.TxLen; aa++)
         { printf("%02X ", ((uint8_t*)uart6.pTxBuff)[aa] ); }
+#endif		
 	  ///////
 	  if( WriteFile((HANDLE)uart6.hSerial, uart6.pTxBuff, uart6.TxLen, &cnt, 0))	
 	  {
@@ -800,12 +802,16 @@ if (0==ExpectedInt)//Åñëè äëÿ ïðåðûâàíèÿ íå îïèñàíî ä
 	// write data  
 	if (uart6.TxLen)
 	 {
+		 
+#ifdef _DEBUG_UART_		 
       //////	
       printf("\n-> ");  
 	  uint8_t aa = 0;
 	  for (aa = 0; aa < uart6.TxLen; aa++)
         { printf("%02X ", ((uint8_t*)uart6.pTxBuff)[aa] ); }
 	  ///////
+#endif
+	  
 	  if((cnt = write( uart6.hSerial, uart6.pTxBuff, uart6.TxLen)) > 0 )	
 	  {
 	   uart6.TxLen -= cnt;

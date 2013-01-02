@@ -188,6 +188,7 @@ asm("nop");
 
 static void UART6_RxEvent(uint8_t *pData, uint8_t len)
 {
+#ifdef _DEBUG_UART_	
 	 printf("\n<- ");  
 	  uint8_t aa = 0;
 	  for (aa = 0; aa < len; aa++)
@@ -195,6 +196,7 @@ static void UART6_RxEvent(uint8_t *pData, uint8_t len)
 			if ((aa%16) == 0) printf("\n");
 			printf("%02X ", ((uint8_t*)pData)[aa] );
          }
+#endif
 		
 MTBusManagerDataReceiver(&ServerA,pData,len);  
 //for(uint8_t i=0;i!=len;i++)
