@@ -25,7 +25,7 @@
 #include "TBusManager.h"
 #include "UartManager.h"
 #include "UartDriver.h"
-#include "nd.h"
+#include "netdev.h"
 
 //#include "Archive.h"
 

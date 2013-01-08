@@ -1,4 +1,5 @@
 #include "../inc/includes.h"
+
 /*
 void rm_SetDateTime(TDateTime * DateTime,uint8_t idx);
 void rm_SetSensTypeUN(uint8_t * data,uint8_t idx);
@@ -24,7 +25,11 @@ void rm_SetSpeedMove(uint8_t * data,uint8_t idx);
 void rm_SetScGrMin(float * data,uint8_t idx);
 void rm_SetScGrMax(float * data,uint8_t idx);
 */
-const tRAS_t RAS[] = {
+
+float Te = 10.1f;
+
+const tRAS_t RAS[] = 
+{
  // var                       type  cnt        funct                   info (18)
 ///* 0*/  {&DateTime           , 8,   1, (func_t )rm_SetDateTime  ,"Current date/time "},
  //------------------------------------------------------------------------------------
@@ -33,7 +38,7 @@ const tRAS_t RAS[] = {
 
 ///*20*/  {&UTCClock,            1,   1,(func_t)rm_SetUTCClock    ,"UTC offset time   "},
 ///*21*/  {&WSClock,             0,   1,(func_t)rm_SetWSClock     ,"Summer/winter time"},
-
+/*21*/  {&Te,                     6,   1, 0                        ,"T"},
 };
 
 const uint16_t RAS_Count = sizeof(RAS)/sizeof(tRAS_t);

@@ -1,0 +1,114 @@
+# depslib dependency file v1.0
+1352823415 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\chs.c
+	<stdint.h>
+	"../inc/CHS.h"
+
+1341215856 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\chs.h
+	<stdint.h>
+
+1357201696 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\connect.c
+	"../inc/includes.h"
+
+1357225161 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\includes.h
+	<stdint.h>
+	<stdio.h>
+	<unistd.h>
+	"MTBus.h"
+	"UartManager.h"
+	"CHS.h"
+	"connect.h"
+	"MTBusConfiguration.h"
+	"MTBusManager.h"
+	"MTBusServer.h"
+	"MTBusRoutingTable.h"
+	"Terabus.h"
+	"NetVarAccesManager.h"
+	"TBusManager.h"
+	"UartManager.h"
+	"UartDriver.h"
+	"netdev.h"
+
+1336649981 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\mtbus.h
+	"MTBusConfiguration.h"
+	<stdint.h>
+
+1353600873 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\mtbusconfiguration.h
+
+1352890903 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\uartmanager.h
+	<stdint.h>
+
+1352808970 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\connect.h
+	"../inc/includes.h"
+
+1330695793 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\mtbusmanager.h
+	"MTBusServer.h"
+
+1342076866 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\mtbusserver.h
+	"MTBusConfiguration.h"
+	"MTBus.h"
+
+1340626497 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\mtbusroutingtable.h
+	"MTBusServer.h"
+
+1352913217 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\terabus.h
+	<stdint.h>
+
+1342077731 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\netvaraccesmanager.h
+	<stdint.h>
+	"MTBus.h"
+	"MTBusServer.h"
+
+1352826144 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\tbusmanager.h
+	"Terabus.h"
+
+1353079151 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\uartdriver.h
+	"stm32f2xx_usart.h"
+	<windows.h>
+	<unistd.h>
+	<fcntl.h>
+	<termios.h>
+
+1357661316 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\netdev.h
+
+1352823155 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\mtbus.c
+	"../inc/includes.h"
+
+1352809556 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\mtbusconfiguration.c
+	"../inc/includes.h"
+
+1356695717 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\mtbusmanager.c
+	"../inc/includes.h"
+
+1352809663 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\mtbusroutingtable.c
+	"../inc/includes.h"
+
+1352997817 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\mtbusserver.c
+	"../inc/includes.h"
+
+1357661299 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\netdev.c
+	"../inc/includes.h"
+
+1352819450 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\netvaraccesmanager.c
+	"../inc/includes.h"
+
+1352826156 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\tbusmanager.c
+	"../inc/includes.h"
+
+1352906582 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\terabus.c
+	"../inc/includes.h"
+
+1357121286 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\uartdriver.c
+	"../inc/includes.h"
+	<windows.h>
+	<unistd.h>
+	<fcntl.h>
+	<termios.h>
+
+1356697879 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\uartmanager.c
+	"../inc/includes.h"
+
+1357225161 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\main.c
+	"../inc/includes.h"
+	<stdio.h>
+	<unistd.h>
+
