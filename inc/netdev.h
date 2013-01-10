@@ -22,7 +22,18 @@ typedef struct sZBRAS
  float    Offset;
  float    Inclin;
  uint8_t  Service;
-} tZBRAS[ZB_DEVICE_CNT];
+} tZBRAS;
+
+typedef struct sZBDevice
+{
+  uint8_t Addr;        //
+  uint8_t *pName;      //
+  uint8_t *pVersion;   //
+  uint8_t Online;      //
+  uint8_t Bind;        //
+  tZBRAS  RAS;
+} tZBDevice[ZB_DEVICE_CNT];
+
 //////////////////////////////////////////////////
 // for DV05 - (t,rh)
 ///* 0*/  {&aVl,                 6,    2, 0                          , "T/RH"},
@@ -61,25 +72,26 @@ typedef struct sDVRAS
  float    vRef;
  uint8_t  TypeSens[2];
  int32_t  aAx[4];
-}tDVRAS[DV_DEVICE_CNT];
+}tDVRAS;
 
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
-typedef struct sNDSens
+typedef struct sDVDevice
 {
   uint8_t Addr;        //
   uint8_t *pName;      //
   uint8_t *pVersion;   //
   uint8_t Online;      //
   uint8_t Bind;        //
-  uint8_t * pRAS;      //
-} tNDSens;
+  tDVRAS  RAS;
+} tDVDevice[DV_DEVICE_CNT];
 
+//////////////////////////////////////////////////
+//
+//////////////////////////////////////////////////
 typedef struct sND
 {
   uint8_t  Cnt;
   uint8_t  Idx;
-  tNDSens  Device;
+  uint8_t *Device;
 }tND;
 
 extern tND ND[];

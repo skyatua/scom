@@ -13,6 +13,8 @@ int main(int argc, char **argv)
     MTBusManagerStart();
     TBusManagerInit();
 
+    ND_Bind();
+
 	printf("\nInit modules - OK..\n");
 
 	while(1)
