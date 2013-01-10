@@ -30,13 +30,8 @@ int main(int argc, char **argv)
 
 
 		USART6_IRQHandler();
-<<<<<<< HEAD
 
-//		ND_GetValues();
-=======
-
-//		ND_GetValues();
->>>>>>> cbd27c2115ee251745dd38bc0a5cdfbcdbd743e8
+        // ND_GetValues();
 
 #ifdef __LINX__
                 usleep(1000);
