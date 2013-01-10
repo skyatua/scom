@@ -795,7 +795,7 @@ if (0==ExpectedInt)//Åñëè äëÿ ïðåðûâàíèÿ íå îïèñàíî ä
 #ifdef __LINX__
  static uint8_t *p;
   uint8_t buff;
-  uint32_t cnt;
+  int32_t cnt;
   
   if ( uart6.hSerial != -1 ) 
   {
@@ -827,7 +827,7 @@ if (0==ExpectedInt)//Åñëè äëÿ ïðåðûâàíèÿ íå îïèñàíî ä
 	do{
 		cnt = read( uart6.hSerial, &buff, 1 );
 		
-		if ( cnt )
+		if ( cnt > 0 )
 		{
 			if(!uart6.RxLast++)
 				p=uart6.pRxBuff;
@@ -836,7 +836,7 @@ if (0==ExpectedInt)//Åñëè äëÿ ïðåðûâàíèÿ íå îïèñàíî ä
 			if(uart6.RxLast >= uart6.RxLen)
 				uart6.RxLast=0;
 		  }
-		}while(cnt);
+		}while( cnt > 0);
   }
 #endif
 }

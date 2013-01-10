@@ -28,9 +28,12 @@ int main(int argc, char **argv)
 
 
 		USART6_IRQHandler();
-
+   
 		ND_GetValues();
 
+#ifdef __LINX__
+                usleep(1000);
+#endif
 		//test_wr();
 		}
 
