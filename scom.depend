@@ -68,7 +68,7 @@
 	<fcntl.h>
 	<termios.h>
 
-1357719553 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\netdev.h
+1357833371 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\netdev.h
 
 1352823155 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\mtbus.c
 	"../inc/includes.h"
@@ -85,7 +85,7 @@
 1352997817 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\mtbusserver.c
 	"../inc/includes.h"
 
-1357742502 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\netdev.c
+1357832642 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\netdev.c
 	"../inc/includes.h"
 
 1352819450 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\netvaraccesmanager.c
@@ -107,7 +107,7 @@
 1356697879 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\uartmanager.c
 	"../inc/includes.h"
 
-1357734351 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\main.c
+1357833431 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\main.c
 	"../inc/includes.h"
 	<stdio.h>
 	<unistd.h>

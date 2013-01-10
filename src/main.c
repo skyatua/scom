@@ -13,7 +13,9 @@ int main(int argc, char **argv)
     MTBusManagerStart();
     TBusManagerInit();
 
-    ND_Bind();
+//    ND_Init();
+
+//    ND_Bind();
 
 	printf("\nInit modules - OK..\n");
 
@@ -29,7 +31,7 @@ int main(int argc, char **argv)
 
 		USART6_IRQHandler();
 
-		ND_GetValues();
+//		ND_GetValues();
 
 		//test_wr();
 		}

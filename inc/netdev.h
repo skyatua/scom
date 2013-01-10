@@ -97,6 +97,7 @@ typedef struct sND
 extern tND ND[];
 extern uint32_t NDTime_Pr;
 
+extern void ND_Init( void );
 extern void ND_Bind( void );
 extern void ND_GetValues( void );
 
