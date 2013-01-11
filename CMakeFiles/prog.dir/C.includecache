@@ -75,6 +75,8 @@ stdio.h
 -
 unistd.h
 -
+math.h
+-
 MTBus.h
 /home/pi/progs/sc1/scom/src/../inc/MTBus.h
 UartManager.h
@@ -106,7 +108,15 @@ netdev.h
 
 /home/pi/progs/sc1/scom/src/../inc/netdev.h
 
-/home/pi/progs/sc1/scom/src/netdev.c
+/home/pi/progs/sc1/scom/src/main.c
 ../inc/includes.h
 /home/pi/progs/sc1/scom/src/../inc/includes.h
+stdio.h
+-
+unistd.h
+-
+sys/ioctl.h
+-
+termios.h
+-
 

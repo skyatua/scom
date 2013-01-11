@@ -2,6 +2,9 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/ioctl.h>
+#include <termios.h>
+
 extern void USART6_IRQHandler(void);
 
 int main(int argc, char **argv)
@@ -12,10 +15,19 @@ int main(int argc, char **argv)
 //
     MTBusManagerStart();
     TBusManagerInit();
-
-    ND_Bind();
+    
+    //    ND_Init();
+     
+    //ND_Bind();
 
 	printf("\nInit modules - OK..\n");
+        uint8_t DevAddr = 0x04;  // for DV05
+        float T = 0.0f,
+   	      Rh = 0.0f;
+        uint8_t * pData = (void*)0;
+        uint32_t kk = 0;
+        //struct winsize ws;
+        //ioctl(STDOUT_FILENO,TIOCGWINSZ, &ws);
 
 	while(1)
 	{
@@ -29,8 +41,41 @@ int main(int argc, char **argv)
 
 		USART6_IRQHandler();
    
-		ND_GetValues();
+		//		ND_GetValues();
+                 
+		if (GetDevOnlineStatus(DevAddr))
+		  {
+		    if (GetVariableStatus(DevAddr, 0x00) == VARIABLE_IS_INIT_STATUS)
+		      {
+			if (pData == (void*)0)
+			  {
+			    SwitchAcces(DevAddr, 0x00, HOST_PORT_1);
+                            pData = GetDataPointer();
+			    printf("\n");
+			  }
+                        if (pData != (void*)0)
+			  { 
+			    // uint8_t mod = 0;
+			    // float temp = *(float*)pData;     
+                            //if (fabs(temp - T) > 0.01f)
+			    //  {  
+			    T  = *(float*)pData;
+                            //    mod = 1; 
+                            
+			    //   }
+			    //T = temp;
+			    //if (fabs(Rh - *(float*)(pData+4)) > 1)
+                            //  {
+                            Rh  = *(float*)(pData+4);
+                            //    mod = 1;
+			    //  }
 
+			    //if (mod == 1)
+			    if ((kk++ % 1000)==0)
+			      printf("T= %3.1f  ,Rh= %3.0f \r", T, Rh);
+			  }
+    	                }
+		  }  
 #ifdef __LINX__
                 usleep(1000);
 #endif

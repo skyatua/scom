@@ -12,11 +12,18 @@ void ND_Init( void )
 {
     ND_DV.Cnt = 0;
     ND_DV.Idx = 0;
-    ND_DV.Device = (uint8_t*)&DVDevice;
+    ND_DV.Device = (uint8_t*)DVDevice;
 
     ND_ZB.Cnt = 0;
     ND_ZB.Idx = 0;
     ND_ZB.Device = (void*)0;
+
+#ifdef __LINX__
+#ifdef _DEBUG_ND_
+	printf("\nND_Init");
+#endif 
+#endif
+  
 }
 
 void ND_Bind( void )
@@ -28,25 +35,37 @@ uint8_t  Cnt     = 1, // NetConfigGetCntDevice(),
 
  if ( ND_DV.Device != (void*)0 )
  {
-  tDVDevice * pDevice = (tDVDevice*)ND_ZB.Device;
+#ifdef __LINX__
+#ifdef _DEBUG_ND_
+        printf("\nND_DV  binding begin..");
+#endif
+#endif
+
+  tDVDevice * pDevice = (tDVDevice*)ND_DV.Device;
 
   for ( i = 0; i < DV_DEVICE_CNT; i++ )
    { pDevice[i]->Addr = 0; }
 
+#ifdef __LINX__
+#ifdef _DEBUG_ND_
+        printf("\nND_DV  cleaning address..");
+#endif
+#endif
+  
   if ( Cnt > 0 )
   {
-   for ( i = 0; i < Cnt; i++)
+   for ( i = 0, zb_idx = 0; i < Cnt; i++)
    {
-     DevAddr = i+10;//NetConfigGetAddrDevice( i );
+     DevAddr = 4;//i+10;//NetConfigGetAddrDevice( i );
 
      //if ((DevAddr > 0) &&
      //     (HOST_PORT_2 == NetConfigGetHostDevice( DevAddr )))
       {
        pDevice[zb_idx]->Addr = DevAddr;
-
-       if (++zb_idx < ZB_DEVICE_CNT - 1)
+         
+       if (++zb_idx < DV_DEVICE_CNT - 1)
        {
-         ND_ZB.Cnt = zb_idx;
+         ND_DV.Cnt = zb_idx;
        }
        else
        { break; }
