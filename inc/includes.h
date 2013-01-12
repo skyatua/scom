@@ -13,7 +13,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <math.h>
+#include "/usr/include/mysql/mysql.h"
 
+
+#include "main.h"
 #include "MTBus.h"
 #include "UartManager.h"
 #include "CHS.h"
@@ -28,7 +31,6 @@
 #include "UartManager.h"
 #include "UartDriver.h"
 #include "netdev.h"
-
-//#include "Archive.h"
+#include "archive.h"
 
 #endif

@@ -1,1 +1,1 @@
-/home/pi/progs/sc1/scom/CMakeFiles/prog.dir
+/home/pi/progs/sc1/scom/CMakeFiles/scom.dir

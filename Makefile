@@ -99,24 +99,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named prog
+# Target rules for targets named scom
 
 # Build rule for target.
-prog: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 prog
-.PHONY : prog
+scom: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 scom
+.PHONY : scom
 
 # fast build rule for target.
-prog/fast:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/build
-.PHONY : prog/fast
+scom/fast:
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/build
+.PHONY : scom/fast
 
 src/CHS.o: src/CHS.c.o
 .PHONY : src/CHS.o
 
 # target to build an object file
 src/CHS.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/CHS.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/CHS.c.o
 .PHONY : src/CHS.c.o
 
 src/CHS.i: src/CHS.c.i
@@ -124,7 +124,7 @@ src/CHS.i: src/CHS.c.i
 
 # target to preprocess a source file
 src/CHS.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/CHS.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/CHS.c.i
 .PHONY : src/CHS.c.i
 
 src/CHS.s: src/CHS.c.s
@@ -132,7 +132,7 @@ src/CHS.s: src/CHS.c.s
 
 # target to generate assembly for a file
 src/CHS.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/CHS.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/CHS.c.s
 .PHONY : src/CHS.c.s
 
 src/MTBus.o: src/MTBus.c.o
@@ -140,7 +140,7 @@ src/MTBus.o: src/MTBus.c.o
 
 # target to build an object file
 src/MTBus.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBus.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBus.c.o
 .PHONY : src/MTBus.c.o
 
 src/MTBus.i: src/MTBus.c.i
@@ -148,7 +148,7 @@ src/MTBus.i: src/MTBus.c.i
 
 # target to preprocess a source file
 src/MTBus.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBus.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBus.c.i
 .PHONY : src/MTBus.c.i
 
 src/MTBus.s: src/MTBus.c.s
@@ -156,7 +156,7 @@ src/MTBus.s: src/MTBus.c.s
 
 # target to generate assembly for a file
 src/MTBus.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBus.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBus.c.s
 .PHONY : src/MTBus.c.s
 
 src/MTBusConfiguration.o: src/MTBusConfiguration.c.o
@@ -164,7 +164,7 @@ src/MTBusConfiguration.o: src/MTBusConfiguration.c.o
 
 # target to build an object file
 src/MTBusConfiguration.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBusConfiguration.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBusConfiguration.c.o
 .PHONY : src/MTBusConfiguration.c.o
 
 src/MTBusConfiguration.i: src/MTBusConfiguration.c.i
@@ -172,7 +172,7 @@ src/MTBusConfiguration.i: src/MTBusConfiguration.c.i
 
 # target to preprocess a source file
 src/MTBusConfiguration.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBusConfiguration.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBusConfiguration.c.i
 .PHONY : src/MTBusConfiguration.c.i
 
 src/MTBusConfiguration.s: src/MTBusConfiguration.c.s
@@ -180,7 +180,7 @@ src/MTBusConfiguration.s: src/MTBusConfiguration.c.s
 
 # target to generate assembly for a file
 src/MTBusConfiguration.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBusConfiguration.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBusConfiguration.c.s
 .PHONY : src/MTBusConfiguration.c.s
 
 src/MTBusManager.o: src/MTBusManager.c.o
@@ -188,7 +188,7 @@ src/MTBusManager.o: src/MTBusManager.c.o
 
 # target to build an object file
 src/MTBusManager.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBusManager.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBusManager.c.o
 .PHONY : src/MTBusManager.c.o
 
 src/MTBusManager.i: src/MTBusManager.c.i
@@ -196,7 +196,7 @@ src/MTBusManager.i: src/MTBusManager.c.i
 
 # target to preprocess a source file
 src/MTBusManager.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBusManager.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBusManager.c.i
 .PHONY : src/MTBusManager.c.i
 
 src/MTBusManager.s: src/MTBusManager.c.s
@@ -204,7 +204,7 @@ src/MTBusManager.s: src/MTBusManager.c.s
 
 # target to generate assembly for a file
 src/MTBusManager.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBusManager.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBusManager.c.s
 .PHONY : src/MTBusManager.c.s
 
 src/MTBusRoutingTable.o: src/MTBusRoutingTable.c.o
@@ -212,7 +212,7 @@ src/MTBusRoutingTable.o: src/MTBusRoutingTable.c.o
 
 # target to build an object file
 src/MTBusRoutingTable.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBusRoutingTable.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBusRoutingTable.c.o
 .PHONY : src/MTBusRoutingTable.c.o
 
 src/MTBusRoutingTable.i: src/MTBusRoutingTable.c.i
@@ -220,7 +220,7 @@ src/MTBusRoutingTable.i: src/MTBusRoutingTable.c.i
 
 # target to preprocess a source file
 src/MTBusRoutingTable.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBusRoutingTable.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBusRoutingTable.c.i
 .PHONY : src/MTBusRoutingTable.c.i
 
 src/MTBusRoutingTable.s: src/MTBusRoutingTable.c.s
@@ -228,7 +228,7 @@ src/MTBusRoutingTable.s: src/MTBusRoutingTable.c.s
 
 # target to generate assembly for a file
 src/MTBusRoutingTable.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTBusRoutingTable.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTBusRoutingTable.c.s
 .PHONY : src/MTBusRoutingTable.c.s
 
 src/MTbusServer.o: src/MTbusServer.c.o
@@ -236,7 +236,7 @@ src/MTbusServer.o: src/MTbusServer.c.o
 
 # target to build an object file
 src/MTbusServer.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTbusServer.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTbusServer.c.o
 .PHONY : src/MTbusServer.c.o
 
 src/MTbusServer.i: src/MTbusServer.c.i
@@ -244,7 +244,7 @@ src/MTbusServer.i: src/MTbusServer.c.i
 
 # target to preprocess a source file
 src/MTbusServer.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTbusServer.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTbusServer.c.i
 .PHONY : src/MTbusServer.c.i
 
 src/MTbusServer.s: src/MTbusServer.c.s
@@ -252,7 +252,7 @@ src/MTbusServer.s: src/MTbusServer.c.s
 
 # target to generate assembly for a file
 src/MTbusServer.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/MTbusServer.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/MTbusServer.c.s
 .PHONY : src/MTbusServer.c.s
 
 src/NetVarAccesManager.o: src/NetVarAccesManager.c.o
@@ -260,7 +260,7 @@ src/NetVarAccesManager.o: src/NetVarAccesManager.c.o
 
 # target to build an object file
 src/NetVarAccesManager.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/NetVarAccesManager.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/NetVarAccesManager.c.o
 .PHONY : src/NetVarAccesManager.c.o
 
 src/NetVarAccesManager.i: src/NetVarAccesManager.c.i
@@ -268,7 +268,7 @@ src/NetVarAccesManager.i: src/NetVarAccesManager.c.i
 
 # target to preprocess a source file
 src/NetVarAccesManager.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/NetVarAccesManager.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/NetVarAccesManager.c.i
 .PHONY : src/NetVarAccesManager.c.i
 
 src/NetVarAccesManager.s: src/NetVarAccesManager.c.s
@@ -276,7 +276,7 @@ src/NetVarAccesManager.s: src/NetVarAccesManager.c.s
 
 # target to generate assembly for a file
 src/NetVarAccesManager.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/NetVarAccesManager.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/NetVarAccesManager.c.s
 .PHONY : src/NetVarAccesManager.c.s
 
 src/TBusManager.o: src/TBusManager.c.o
@@ -284,7 +284,7 @@ src/TBusManager.o: src/TBusManager.c.o
 
 # target to build an object file
 src/TBusManager.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/TBusManager.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/TBusManager.c.o
 .PHONY : src/TBusManager.c.o
 
 src/TBusManager.i: src/TBusManager.c.i
@@ -292,7 +292,7 @@ src/TBusManager.i: src/TBusManager.c.i
 
 # target to preprocess a source file
 src/TBusManager.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/TBusManager.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/TBusManager.c.i
 .PHONY : src/TBusManager.c.i
 
 src/TBusManager.s: src/TBusManager.c.s
@@ -300,7 +300,7 @@ src/TBusManager.s: src/TBusManager.c.s
 
 # target to generate assembly for a file
 src/TBusManager.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/TBusManager.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/TBusManager.c.s
 .PHONY : src/TBusManager.c.s
 
 src/Terabus.o: src/Terabus.c.o
@@ -308,7 +308,7 @@ src/Terabus.o: src/Terabus.c.o
 
 # target to build an object file
 src/Terabus.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/Terabus.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/Terabus.c.o
 .PHONY : src/Terabus.c.o
 
 src/Terabus.i: src/Terabus.c.i
@@ -316,7 +316,7 @@ src/Terabus.i: src/Terabus.c.i
 
 # target to preprocess a source file
 src/Terabus.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/Terabus.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/Terabus.c.i
 .PHONY : src/Terabus.c.i
 
 src/Terabus.s: src/Terabus.c.s
@@ -324,7 +324,7 @@ src/Terabus.s: src/Terabus.c.s
 
 # target to generate assembly for a file
 src/Terabus.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/Terabus.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/Terabus.c.s
 .PHONY : src/Terabus.c.s
 
 src/UartDriver.o: src/UartDriver.c.o
@@ -332,7 +332,7 @@ src/UartDriver.o: src/UartDriver.c.o
 
 # target to build an object file
 src/UartDriver.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/UartDriver.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/UartDriver.c.o
 .PHONY : src/UartDriver.c.o
 
 src/UartDriver.i: src/UartDriver.c.i
@@ -340,7 +340,7 @@ src/UartDriver.i: src/UartDriver.c.i
 
 # target to preprocess a source file
 src/UartDriver.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/UartDriver.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/UartDriver.c.i
 .PHONY : src/UartDriver.c.i
 
 src/UartDriver.s: src/UartDriver.c.s
@@ -348,7 +348,7 @@ src/UartDriver.s: src/UartDriver.c.s
 
 # target to generate assembly for a file
 src/UartDriver.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/UartDriver.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/UartDriver.c.s
 .PHONY : src/UartDriver.c.s
 
 src/UartManager.o: src/UartManager.c.o
@@ -356,7 +356,7 @@ src/UartManager.o: src/UartManager.c.o
 
 # target to build an object file
 src/UartManager.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/UartManager.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/UartManager.c.o
 .PHONY : src/UartManager.c.o
 
 src/UartManager.i: src/UartManager.c.i
@@ -364,7 +364,7 @@ src/UartManager.i: src/UartManager.c.i
 
 # target to preprocess a source file
 src/UartManager.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/UartManager.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/UartManager.c.i
 .PHONY : src/UartManager.c.i
 
 src/UartManager.s: src/UartManager.c.s
@@ -372,15 +372,39 @@ src/UartManager.s: src/UartManager.c.s
 
 # target to generate assembly for a file
 src/UartManager.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/UartManager.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/UartManager.c.s
 .PHONY : src/UartManager.c.s
+
+src/archive.o: src/archive.c.o
+.PHONY : src/archive.o
+
+# target to build an object file
+src/archive.c.o:
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/archive.c.o
+.PHONY : src/archive.c.o
+
+src/archive.i: src/archive.c.i
+.PHONY : src/archive.i
+
+# target to preprocess a source file
+src/archive.c.i:
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/archive.c.i
+.PHONY : src/archive.c.i
+
+src/archive.s: src/archive.c.s
+.PHONY : src/archive.s
+
+# target to generate assembly for a file
+src/archive.c.s:
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/archive.c.s
+.PHONY : src/archive.c.s
 
 src/connect.o: src/connect.c.o
 .PHONY : src/connect.o
 
 # target to build an object file
 src/connect.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/connect.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/connect.c.o
 .PHONY : src/connect.c.o
 
 src/connect.i: src/connect.c.i
@@ -388,7 +412,7 @@ src/connect.i: src/connect.c.i
 
 # target to preprocess a source file
 src/connect.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/connect.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/connect.c.i
 .PHONY : src/connect.c.i
 
 src/connect.s: src/connect.c.s
@@ -396,7 +420,7 @@ src/connect.s: src/connect.c.s
 
 # target to generate assembly for a file
 src/connect.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/connect.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/connect.c.s
 .PHONY : src/connect.c.s
 
 src/main.o: src/main.c.o
@@ -404,7 +428,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/main.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -412,7 +436,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/main.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -420,7 +444,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/main.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 src/netdev.o: src/netdev.c.o
@@ -428,7 +452,7 @@ src/netdev.o: src/netdev.c.o
 
 # target to build an object file
 src/netdev.c.o:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/netdev.c.o
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/netdev.c.o
 .PHONY : src/netdev.c.o
 
 src/netdev.i: src/netdev.c.i
@@ -436,7 +460,7 @@ src/netdev.i: src/netdev.c.i
 
 # target to preprocess a source file
 src/netdev.c.i:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/netdev.c.i
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/netdev.c.i
 .PHONY : src/netdev.c.i
 
 src/netdev.s: src/netdev.c.s
@@ -444,7 +468,7 @@ src/netdev.s: src/netdev.c.s
 
 # target to generate assembly for a file
 src/netdev.c.s:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/src/netdev.c.s
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/src/netdev.c.s
 .PHONY : src/netdev.c.s
 
 # Help Target
@@ -454,8 +478,8 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... prog"
 	@echo "... rebuild_cache"
+	@echo "... scom"
 	@echo "... src/CHS.o"
 	@echo "... src/CHS.i"
 	@echo "... src/CHS.s"
@@ -489,6 +513,9 @@ help:
 	@echo "... src/UartManager.o"
 	@echo "... src/UartManager.i"
 	@echo "... src/UartManager.s"
+	@echo "... src/archive.o"
+	@echo "... src/archive.i"
+	@echo "... src/archive.s"
 	@echo "... src/connect.o"
 	@echo "... src/connect.i"
 	@echo "... src/connect.s"

@@ -53,38 +53,38 @@ CMAKE_SOURCE_DIR = /home/pi/progs/sc1/scom
 CMAKE_BINARY_DIR = /home/pi/progs/sc1/scom
 
 #=============================================================================
-# Target rules for target CMakeFiles/prog.dir
+# Target rules for target CMakeFiles/scom.dir
 
 # All Build rule for target.
-CMakeFiles/prog.dir/all:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/depend
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/progs/sc1/scom/CMakeFiles  1 2 3 4 5 6 7 8 9 10 11 12 13 14
-	@echo "Built target prog"
-.PHONY : CMakeFiles/prog.dir/all
+CMakeFiles/scom.dir/all:
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/depend
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/progs/sc1/scom/CMakeFiles  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+	@echo "Built target scom"
+.PHONY : CMakeFiles/scom.dir/all
 
 # Include target in all.
-all: CMakeFiles/prog.dir/all
+all: CMakeFiles/scom.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/prog.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/progs/sc1/scom/CMakeFiles 14
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/prog.dir/all
+CMakeFiles/scom.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/progs/sc1/scom/CMakeFiles 15
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/scom.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/progs/sc1/scom/CMakeFiles 0
-.PHONY : CMakeFiles/prog.dir/rule
+.PHONY : CMakeFiles/scom.dir/rule
 
 # Convenience name for target.
-prog: CMakeFiles/prog.dir/rule
-.PHONY : prog
+scom: CMakeFiles/scom.dir/rule
+.PHONY : scom
 
 # clean rule for target.
-CMakeFiles/prog.dir/clean:
-	$(MAKE) -f CMakeFiles/prog.dir/build.make CMakeFiles/prog.dir/clean
-.PHONY : CMakeFiles/prog.dir/clean
+CMakeFiles/scom.dir/clean:
+	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/clean
+.PHONY : CMakeFiles/scom.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/prog.dir/clean
+clean: CMakeFiles/scom.dir/clean
 .PHONY : clean
 
 #=============================================================================
