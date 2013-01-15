@@ -29,6 +29,7 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-Wfatal-errors" />
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="inc/CHS.h">
@@ -116,6 +117,9 @@
 		<Unit filename="src/UartManager.c">
 			<Option compilerVar="CC" />
 			<Option target="Debug" />
+		</Unit>
+		<Unit filename="src/archive.c">
+			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/connect.c">
 			<Option compilerVar="CC" />

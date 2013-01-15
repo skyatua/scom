@@ -41,14 +41,14 @@ uint8_t uart_speed_index = 0x00; // 9600bps defaults
 
 void StartUart3Manager(void)
 {
-#ifdef __STM32__	
+#ifdef __STM32__
  uart3Descriptor.chanell              = USART3;
 #endif
 #ifdef __LINX__
- uart3Descriptor.chanell              = 0x06;
+ uart3Descriptor.chanell              = 0x03;
 #endif
 #ifdef __WINX__
- uart3Descriptor.chanell              = 0x06;
+ uart3Descriptor.chanell              = 0x03;
 #endif
 
  uart3Descriptor.baudrate             = USART_BAUDRATE_38400;
@@ -56,7 +56,8 @@ void StartUart3Manager(void)
  uart3Descriptor.stopbits             = UART_STOPBIT_1;
  uart3Descriptor.parity               = UART_PARITY_NONE;
  uart3Descriptor.flowControl          = UART_FLOW_CONTROL_NONE;
- uart3Descriptor.HardwareAccelerator = ENABLE_DMA_RX_CHANELL|ENABLE_DMA_TX_CHANELL;
+ uart3Descriptor.HardwareAccelerator  =  DISABLE_DMA_RX_CHANELL |
+                                          DISABLE_DMA_TX_CHANELL;
  uart3Descriptor.rxBuff               = RxBuff3;
  uart3Descriptor.rxBuffSize           = sizeof(RxBuff3);
  uart3Descriptor.rxCallback           = UART3_RxEvent;
@@ -66,12 +67,12 @@ void StartUart3Manager(void)
 
 void StartUart1Manager(void)
 {
-#ifdef __STM32__  
+#ifdef __STM32__
  uart1Descriptor.chanell              = USART1;
 #endif
 #ifdef __LINX__
  uart1Descriptor.chanell              = 0x06;
-#endif 
+#endif
 #ifdef __WINX__
  uart1Descriptor.chanell              = 0x06;
 #endif
@@ -85,44 +86,44 @@ void StartUart1Manager(void)
                                                 (uart_speed_index == 7)?USART_BAUDRATE_128000:
                                                                USART_BAUDRATE_9600;
 	*/
- uart1Descriptor.baudrate             = USART_BAUDRATE_9600;													   
- 
+ uart1Descriptor.baudrate             = USART_BAUDRATE_9600;
+
  uart1Descriptor.dataLength           = UART_DATA8;
  uart1Descriptor.stopbits             = UART_STOPBIT_1;
  uart1Descriptor.parity               = UART_PARITY_NONE;
  uart1Descriptor.flowControl          = UART_FLOW_CONTROL_NONE;
  uart1Descriptor.HardwareAccelerator  = DISABLE_DMA_RX_CHANELL |
-                                         DISABLE_DMA_TX_CHANELL;    
-										 
+                                         DISABLE_DMA_TX_CHANELL;
+
  uart1Descriptor.rxBuff               = RxBuff1;
  uart1Descriptor.rxBuffSize           = sizeof(RxBuff1);
  uart1Descriptor.rxCallback           = UART1_RxEvent;
  uart1Descriptor.txCallback           = UART1_TxConfirm;
-  
-#ifdef __STM32__  
+
+#ifdef __STM32__
  //DE1_make_out_pp();
  //DE1_clr();
  GPIO_InitTypeDef GPIO_InitStructure;
-  
+
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-  
+
    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
    GPIO_Init(GPIOB, &GPIO_InitStructure);
   GPIO_WriteBit(GPIOB,GPIO_Pin_2,Bit_RESET);
-#endif  
- 
+#endif
+
  OpenUart(&uart1Descriptor);
 }
 
 
 void StartUart6Manager(void)
 {
-#ifdef __STM32__	
+#ifdef __STM32__
  uart6Descriptor.chanell              = USART6;
-#endif 
+#endif
 #ifdef __LINX__
  uart6Descriptor.chanell              = 0x06;
 #endif
@@ -136,30 +137,30 @@ void StartUart6Manager(void)
  uart6Descriptor.parity               = UART_PARITY_NONE;
  uart6Descriptor.flowControl          = UART_FLOW_CONTROL_NONE;
  uart6Descriptor.HardwareAccelerator  = DISABLE_DMA_RX_CHANELL | DISABLE_DMA_TX_CHANELL;
- 
+
  uart6Descriptor.rxBuff               = RxBuff6;
  uart6Descriptor.rxBuffSize           = sizeof(RxBuff6);
  uart6Descriptor.rxCallback           = UART6_RxEvent;
  uart6Descriptor.txCallback           = UART6_TxConfirm;
- 
-#ifdef __STM32__ 
+
+#ifdef __STM32__
  //DE6_make_out_pp();
 // DE6_clr();
 
  RCC_AHB1PeriphClockCmd( RCC_AHB1Periph_GPIOC, ENABLE);
 
   GPIO_InitTypeDef GPIO_InitStructure;
-  
+
    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-  
+
    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
    GPIO_Init(GPIOC, &GPIO_InitStructure);
   GPIO_WriteBit(GPIOC,GPIO_Pin_9,Bit_RESET);
 #endif
- 
+
  OpenUart(&uart6Descriptor);
 }
 
@@ -167,12 +168,23 @@ void StartUart6Manager(void)
 
 
 static void UART3_RxEvent(uint8_t *pData, uint8_t len)
-{           
+{
+
+#ifdef _DEBUG_UART_
+	 printf("\n<- ");
+	  uint8_t aa = 0;
+	  for (aa = 0; aa < len; aa++)
+        {
+			if ((aa%16) == 0) printf("\n");
+			printf("%02X ", ((uint8_t*)pData)[aa] );
+         }
+#endif
+
 //for(uint8_t i=0;i!=len;i++)
 //  Rx[ii++]=*pData++;
-//CDReceive(*pData++);  
-MTBusManagerDataReceiver(&ServerB,pData,len);  
-//MTBusManagerDataReceiver(&CoordSniffer,pData,len); 
+//CDReceive(*pData++);
+MTBusManagerDataReceiver(&ServerB,pData,len);
+//MTBusManagerDataReceiver(&CoordSniffer,pData,len);
 // asm("nop");
 
 //  TBusDataReceiver(*pData++);
@@ -180,25 +192,25 @@ MTBusManagerDataReceiver(&ServerB,pData,len);
 
 static void UART3_TxConfirm(void)
 {
-asm("nop");  
+asm("nop");
 // Rx_SW;
- SlavePortSatus=PORT_FREE;
+ SlavePortSatus = PORT_FREE;
 }
 
 
 static void UART6_RxEvent(uint8_t *pData, uint8_t len)
 {
-#ifdef _DEBUG_UART_	
-	 printf("\n<- ");  
+#ifdef _DEBUG_UART_
+	 printf("\n<- ");
 	  uint8_t aa = 0;
 	  for (aa = 0; aa < len; aa++)
-        { 
+        {
 			if ((aa%16) == 0) printf("\n");
 			printf("%02X ", ((uint8_t*)pData)[aa] );
          }
 #endif
-		
-MTBusManagerDataReceiver(&ServerA,pData,len);  
+
+MTBusManagerDataReceiver(&ServerA,pData,len);
 //for(uint8_t i=0;i!=len;i++)
 //MTBusServerDataReceiver(&ServerA,*pData++);
 //MTBusDataReceiver(&MTBusModule,*pData++);  !!!!!!!!!!!!!!
@@ -208,30 +220,31 @@ asm("nop");
 
 static void UART6_TxConfirm(void)
 {
-#ifdef __STM32__	
-//DE6_clr();  
+#ifdef __STM32__
+//DE6_clr();
    GPIO_WriteBit(GPIOC,GPIO_Pin_9,Bit_RESET);
 #endif
-   
+
 asm("nop");
 }
 
 
 void Uart6SendPacket(uint8_t * p,uint16_t len)
 {
-asm("nop"); 
-#ifdef __STM32__ 
+asm("nop");
+#ifdef __STM32__
 //DE6_set();
  GPIO_WriteBit(GPIOC,GPIO_Pin_9,Bit_SET);
 #endif
- 
+
 WriteUart(&uart6Descriptor,p,len);
 }
 
 
 void Uart3SendPacket(uint8_t * p,uint16_t len)
 {
-WriteUart(&uart3Descriptor,p,len);
+
+ WriteUart(&uart3Descriptor,p,len);
 }
 
 
@@ -241,8 +254,8 @@ void SlaveSendPacket(uint8_t * p,uint16_t len)
 #ifdef __STM32__
   GPIO_WriteBit(GPIOB,GPIO_Pin_2,Bit_SET);
 #endif
-  
-SlavePortSatus = PORT_BUSY;  
+
+SlavePortSatus = PORT_BUSY;
 WriteUart(&uart1Descriptor,p,len);
 }
 
@@ -250,21 +263,21 @@ WriteUart(&uart1Descriptor,p,len);
 
 static void UART1_RxEvent(uint8_t *pData, uint8_t len)
 { uint8_t i;
-for(i=0;i!=len;i++)  
+for(i=0;i!=len;i++)
   TBusDataReceiver(&TBusSlave,*pData++);
-  
+
 asm("nop");
 }
 
 
 static void UART1_TxConfirm(void)
 {
-//DE1_clr(); 
-#ifdef __STM32__ 
+//DE1_clr();
+#ifdef __STM32__
   GPIO_WriteBit(GPIOB,GPIO_Pin_2,Bit_RESET);
 #endif
-  
-SlavePortSatus = PORT_FREE;   
+
+SlavePortSatus = PORT_FREE;
 }
 
 uint8_t GetSlavePortStatus(void)
@@ -281,7 +294,7 @@ void SetSlavePortStatus(uint8_t Status)
 {
 if(0==Status)
   SlavePortSatus = PORT_FREE;
-else 
+else
   SlavePortSatus = PORT_BUSY;
 }
 
@@ -296,5 +309,14 @@ void StopUart6Manager()
 
 }
 
+void StopUart3Manager()
+{
+#ifdef __WINX__
+ 	CloseUart(&uart3Descriptor);
+#endif
+#ifdef __LINX__
+ 	CloseUart(&uart3Descriptor);
+#endif
+}
 
 

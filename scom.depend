@@ -9,7 +9,7 @@
 1358242490 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\connect.c
 	"../inc/includes.h"
 
-1358242551 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\includes.h
+1358255049 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\includes.h
 	<stdint.h>
 	<stdio.h>
 	<unistd.h>
@@ -38,7 +38,7 @@
 
 1358242490 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\mtbusconfiguration.h
 
-1358242490 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\uartmanager.h
+1358251888 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\uartmanager.h
 	<stdint.h>
 
 1358242490 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\connect.h
@@ -65,7 +65,7 @@
 1358242490 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\tbusmanager.h
 	"Terabus.h"
 
-1358242490 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\uartdriver.h
+1358251344 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\uartdriver.h
 	"stm32f2xx_usart.h"
 	<windows.h>
 	<unistd.h>
@@ -101,17 +101,17 @@
 1358242490 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\terabus.c
 	"../inc/includes.h"
 
-1358242490 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\uartdriver.c
+1358257611 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\uartdriver.c
 	"../inc/includes.h"
 	<windows.h>
 	<unistd.h>
 	<fcntl.h>
 	<termios.h>
 
-1358242490 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\uartmanager.c
+1358251874 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\uartmanager.c
 	"../inc/includes.h"
 
-1358242490 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\main.c
+1358254279 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\main.c
 	"../inc/includes.h"
 	<stdio.h>
 	<unistd.h>

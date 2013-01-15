@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
+extern void USART3_IRQHandler(void);
 extern void USART6_IRQHandler(void);
 
 float T = 0.0f,
@@ -11,8 +12,8 @@ float T = 0.0f,
 int main(int argc, char **argv)
 {
 //   StartUart1Manager();
-//  StartUart3Manager();
-    StartUart6Manager();
+  StartUart3Manager();
+  StartUart6Manager();
 //
     MTBusManagerStart();
     TBusManagerInit();
@@ -23,7 +24,8 @@ int main(int argc, char **argv)
 //    ND_Bind();
 
 	printf("\nInit modules - OK..\n");
-        uint8_t DevAddr = 0x04;  // for DV05
+        uint8_t DevAddr = //0x04;  // for DV05
+                          23;      // ZigBit
         uint8_t * pData = (void*)0;
         uint32_t kk = 0;
         uint8_t status = 0,
@@ -38,7 +40,7 @@ int main(int argc, char **argv)
         MTBusManagerRun();
         TBusManagerRun();
 
-
+        USART3_IRQHandler();
 		USART6_IRQHandler();
 
         // ND_GetValues();
@@ -51,7 +53,7 @@ int main(int argc, char **argv)
 		      {
 			if (pData == (void*)0)
 			  {
-			    SwitchAcces(DevAddr, 0x00, HOST_PORT_1);
+			    SwitchAcces(DevAddr, 0x00, HOST_PORT_2);
                             pData = GetDataPointer();
 			    printf("\n");
 			  }
@@ -61,14 +63,14 @@ int main(int argc, char **argv)
 			    // float temp = *(float*)pData;
                             //if (fabs(temp - T) > 0.01f)
 			    //  {
-			    T  = *(float*)pData;
+			    T  = (*(int16_t*)pData)/10.0f;
                             //    mod = 1;
 
 			    //   }
 			    //T = temp;
 			    //if (fabs(Rh - *(float*)(pData+4)) > 1)
                             //  {
-                            Rh  = *(float*)(pData+4);
+                            //Rh  = *(float*)(pData+4);
                             //    mod = 1;
 			    //  }
 
@@ -87,6 +89,7 @@ int main(int argc, char **argv)
 		//test_wr();
 		}
 
+    StopUart3Manager();
 	StopUart6Manager();
 
 /*

@@ -1,12 +1,12 @@
 #ifndef _includes_h
 #define _includes_h
 
-//#define _DEBUG_UART_
-#define _DEBUG_ND_
+#define _DEBUG_UART_
+//#define _DEBUG_ND_
 
 //#define __STM32__  // use in STM32
 //#define __LINX__   // use in Linux
-#define __WINX__     // use in Win32
+#define __WINX__    // use in Win32
 
 
 #include <stdint.h>

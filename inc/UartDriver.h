@@ -13,7 +13,7 @@
 #endif
 
 #ifdef __STM32__
-#include "stm32f2xx_usart.h"   
+#include "stm32f2xx_usart.h"
 #endif
 
 #ifdef __WINX__
@@ -21,15 +21,15 @@
 #endif
 
 #ifdef __LINX__
-#include <unistd.h>			
-#include <fcntl.h>			
-#include <termios.h>		
+#include <unistd.h>
+#include <fcntl.h>
+#include <termios.h>
 #endif
-   
+
 typedef enum
 {
-#ifdef __STM32__	
-USART_BAUDRATE_9600   = 9600,  
+#ifdef __STM32__
+USART_BAUDRATE_9600   = 9600,
 USART_BAUDRATE_14400  = 14400,
 USART_BAUDRATE_19200  = 19200,
 USART_BAUDRATE_38400  = 38400,
@@ -56,29 +56,29 @@ USART_BAUDRATE_128000 = CBR_128000,
 USART_BAUDRATE_256000 = CBR_256000,
 #endif
 #ifdef __LINX__
-USART_BAUDRATE_9600   = B9600,  
+USART_BAUDRATE_9600   = B9600,
 USART_BAUDRATE_19200  = B19200,
 USART_BAUDRATE_38400  = B38400,
 USART_BAUDRATE_57600  = B57600,
 USART_BAUDRATE_115200 = B115200,
 #endif
-}baudrate_t;   
-   
+}baudrate_t;
+
 typedef enum
 {
-#ifdef __STM32__	
+#ifdef __STM32__
 UART_DATA8       = USART_WordLength_8b,
 UART_DATA9       = USART_WordLength_9b
 #endif
-#ifdef __LINX__  
+#ifdef __LINX__
 UART_DATA5       = CS5,
-UART_DATA6       = CS6, 
+UART_DATA6       = CS6,
 UART_DATA7       = CS7,
-UART_DATA8       = CS8 
+UART_DATA8       = CS8
 #endif
 #ifdef __WINX__
 UART_DATA5       = DATABITS_5,
-UART_DATA6       = DATABITS_6, 
+UART_DATA6       = DATABITS_6,
 UART_DATA7       = DATABITS_7,
 UART_DATA8       = DATABITS_8
 #endif
@@ -107,7 +107,7 @@ UART_STOPBIT_2   = TWOSTOPBITS,
 
 typedef enum
 {
-#ifdef __STM32__	
+#ifdef __STM32__
 UART_FLOW_CONTROL_NONE    = USART_HardwareFlowControl_None,
 UART_FLOW_CONTROL_RTS     = USART_HardwareFlowControl_RTS,
 UART_FLOW_CONTROL_CTS     = USART_HardwareFlowControl_CTS,
@@ -126,7 +126,7 @@ UART_FLOW_CONTROL_NONE    = 0x00,
 
 typedef enum
 {
-#ifdef __STM32__	
+#ifdef __STM32__
 UART_PARITY_NONE = USART_Parity_No,
 UART_PARITY_EVEN = USART_Parity_Even,
 UART_PARITY_ODD  = USART_Parity_Odd,
@@ -155,7 +155,7 @@ DISABLE_DMA_TX_CHANELL = 0x08,
 
 typedef struct
 {
-#ifdef __STM32__	
+#ifdef __STM32__
 USART_TypeDef       *chanell;
 #endif
 #ifdef __LINX__
@@ -181,10 +181,9 @@ extern void CloseUart(UartDescriptor_t * descriptor);
 extern void WriteUart(UartDescriptor_t *uartDescriptor,uint8_t *p,uint16_t len);
 extern void UartDriverRun(void);
 
-extern void test_wr(void );
 #ifdef __cplusplus
 }
-#endif   
+#endif
 
 
 #endif
