@@ -1,31 +1,39 @@
-project(TEST)
-cmake_minimum_required(VERSION 2.6)
-set(CMAKE_CXX_FLAGS "-g -Wall")
-set(SRC_DIR ${PROJECT_SOURCE_DIR}/src)
-set(APP_NAME prog)
+cmake_minimum_required (VERSION 2.6)
 
-# DEBUG|RELEASE|RELWITHDEBINFO|MINSIZEREL
-set(CMAKE_BUILD_TYPE RELEASE)
+# Project Name
+project (scom)
 
-include_directories( /inc )
-link_directories( /bin )
+# Add MySQL
+# find_package(MySQL REQUIRED)
+include_directories(/inc /usr/include/mysql )
+set(CMAKE_LIBRARY_PATH /usr/lib/mysql /lib )
+set(LIBS ${LIBS} mysqlclient)
 
-list(APPEND SRC ${SRC_DIR}/main.c)
-list(APPEND SRC ${SRC_DIR}/connect.c)
-list(APPEND SRC ${SRC_DIR}/UartManager.c)
-list(APPEND SRC ${SRC_DIR}/UartDriver.c)
-list(APPEND SRC ${SRC_DIR}/Terabus.c)
-list(APPEND SRC ${SRC_DIR}/TBusManager.c)
-list(APPEND SRC ${SRC_DIR}/NetVarAccesManager.c)
-list(APPEND SRC ${SRC_DIR}/MTbusServer.c)
-list(APPEND SRC ${SRC_DIR}/MTBusRoutingTable.c)
-list(APPEND SRC ${SRC_DIR}/MTBusManager.c)
-list(APPEND SRC ${SRC_DIR}/MTBusConfiguration.c)
-list(APPEND SRC ${SRC_DIR}/MTBus.c)
-list(APPEND SRC ${SRC_DIR}/CHS.c)
-list(APPEND SRC ${SRC_DIR}/netdev.c)
+# Include Directory
+include_directories(src)
+
+# Link the MySQL
+link_directories("${PROJECT_SOURCE_DIR}/lib") 
 
 
-add_executable( ${APP_NAME} ${SRC} )
+# Add Sources
+add_executable( mtbus 
+	src/main.c 
+	src/MTBus.c 
+	src/UartManager.c 
+	src/CHS.c 
+	src/connect.c 
+	src/MTBusConfiguration.c 
+	src/MTBusManager.c 
+	src/MTbusServer.c 
+	src/MTBusRoutingTable.c 
+	src/Terabus.c 
+	src/NetVarAccesManager.c 
+	src/TBusManager.c 
+	src/UartManager.c 
+	src/UartDriver.c 
+	src/netdev.c 
+	src/archive.c
+)
 
-#target_link_libraries( ${APP_NAME} name_N)
+target_link_libraries(mtbus -L -i ${LIBS})

@@ -116,7 +116,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=TEST
+CMAKE_PROJECT_NAME:STATIC=scom
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -156,10 +156,10 @@ CMAKE_USE_RELATIVE_PATHS:BOOL=OFF
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-TEST_BINARY_DIR:STATIC=/home/pi/progs/sc1/scom
+scom_BINARY_DIR:STATIC=/home/pi/progs/sc1/scom
 
 //Value Computed by CMake
-TEST_SOURCE_DIR:STATIC=/home/pi/progs/sc1/scom
+scom_SOURCE_DIR:STATIC=/home/pi/progs/sc1/scom
 
 
 ########################

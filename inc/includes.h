@@ -1,7 +1,8 @@
 #ifndef _includes_h
 #define _includes_h
 
-#define _DEBUG_UART_
+//#define _DEBUG_UART_
+#define _DEBUG_ND_
 
 //#define __STM32__  // use in STM32
 //#define __LINX__   // use in Linux
@@ -11,7 +12,11 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <math.h>
+#include "/usr/include/mysql/mysql.h"
 
+
+#include "main.h"
 #include "MTBus.h"
 #include "UartManager.h"
 #include "CHS.h"
@@ -26,7 +31,6 @@
 #include "UartManager.h"
 #include "UartDriver.h"
 #include "netdev.h"
-
-//#include "Archive.h"
+#include "archive.h"
 
 #endif

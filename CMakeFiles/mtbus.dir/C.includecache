@@ -64,6 +64,8 @@ termios.h
 stdint.h
 -
 
+/home/pi/progs/sc1/scom/src/../inc/archive.h
+
 /home/pi/progs/sc1/scom/src/../inc/connect.h
 ../inc/includes.h
 /home/pi/progs/sc1/scom/src/../inc/../inc/includes.h
@@ -77,6 +79,10 @@ unistd.h
 -
 math.h
 -
+/usr/include/mysql/mysql.h
+-
+main.h
+/home/pi/progs/sc1/scom/src/../inc/main.h
 MTBus.h
 /home/pi/progs/sc1/scom/src/../inc/MTBus.h
 UartManager.h
@@ -105,6 +111,10 @@ UartDriver.h
 /home/pi/progs/sc1/scom/src/../inc/UartDriver.h
 netdev.h
 /home/pi/progs/sc1/scom/src/../inc/netdev.h
+archive.h
+/home/pi/progs/sc1/scom/src/../inc/archive.h
+
+/home/pi/progs/sc1/scom/src/../inc/main.h
 
 /home/pi/progs/sc1/scom/src/../inc/netdev.h
 
@@ -119,4 +129,40 @@ sys/ioctl.h
 -
 termios.h
 -
+
+/usr/include/mysql/my_alloc.h
+
+/usr/include/mysql/my_list.h
+
+/usr/include/mysql/mysql.h
+standards.h
+-
+sys/types.h
+-
+winsock2.h
+-
+mysql_version.h
+/usr/include/mysql/mysql_version.h
+mysql_com.h
+/usr/include/mysql/mysql_com.h
+mysql_time.h
+/usr/include/mysql/mysql_time.h
+my_list.h
+/usr/include/mysql/my_list.h
+typelib.h
+/usr/include/mysql/typelib.h
+my_alloc.h
+/usr/include/mysql/my_alloc.h
+
+/usr/include/mysql/mysql_com.h
+
+/usr/include/mysql/mysql_time.h
+
+/usr/include/mysql/mysql_version.h
+custom_conf.h
+-
+
+/usr/include/mysql/typelib.h
+my_alloc.h
+/usr/include/mysql/my_alloc.h
 
