@@ -15,3 +15,7 @@
 #cmake
 CMakeFiles/
 /CMakeCache.txt
+
+#codeblock
+bin/
+obj/
