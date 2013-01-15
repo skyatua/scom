@@ -53,38 +53,38 @@ CMAKE_SOURCE_DIR = /home/pi/progs/sc1/scom
 CMAKE_BINARY_DIR = /home/pi/progs/sc1/scom
 
 #=============================================================================
-# Target rules for target CMakeFiles/scom.dir
+# Target rules for target CMakeFiles/mtbus.dir
 
 # All Build rule for target.
-CMakeFiles/scom.dir/all:
-	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/depend
-	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/build
+CMakeFiles/mtbus.dir/all:
+	$(MAKE) -f CMakeFiles/mtbus.dir/build.make CMakeFiles/mtbus.dir/depend
+	$(MAKE) -f CMakeFiles/mtbus.dir/build.make CMakeFiles/mtbus.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/progs/sc1/scom/CMakeFiles  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
-	@echo "Built target scom"
-.PHONY : CMakeFiles/scom.dir/all
+	@echo "Built target mtbus"
+.PHONY : CMakeFiles/mtbus.dir/all
 
 # Include target in all.
-all: CMakeFiles/scom.dir/all
+all: CMakeFiles/mtbus.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/scom.dir/rule: cmake_check_build_system
+CMakeFiles/mtbus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/progs/sc1/scom/CMakeFiles 15
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/scom.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/mtbus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/progs/sc1/scom/CMakeFiles 0
-.PHONY : CMakeFiles/scom.dir/rule
+.PHONY : CMakeFiles/mtbus.dir/rule
 
 # Convenience name for target.
-scom: CMakeFiles/scom.dir/rule
-.PHONY : scom
+mtbus: CMakeFiles/mtbus.dir/rule
+.PHONY : mtbus
 
 # clean rule for target.
-CMakeFiles/scom.dir/clean:
-	$(MAKE) -f CMakeFiles/scom.dir/build.make CMakeFiles/scom.dir/clean
-.PHONY : CMakeFiles/scom.dir/clean
+CMakeFiles/mtbus.dir/clean:
+	$(MAKE) -f CMakeFiles/mtbus.dir/build.make CMakeFiles/mtbus.dir/clean
+.PHONY : CMakeFiles/mtbus.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/scom.dir/clean
+clean: CMakeFiles/mtbus.dir/clean
 .PHONY : clean
 
 #=============================================================================

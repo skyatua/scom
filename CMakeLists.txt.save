@@ -1,0 +1,18 @@
+cmake_minimum_required (VERSION 2.6)
+
+# Project Name
+project (egest)
+
+# Add MySQL
+# find_package(MySQL REQUIRED)
+include_directories(include)
+set(CMAKE_LIBRARY_PATH /lib)
+set(LIBS ${LIBS} mysql)
+
+# Include Directory
+include_directories(src)
+
+# Link the MySQL
+# Add Sources
+add_executable(test src/egest.cpp src/login/login.cpp)
+target_link_libraries(test ${LIBS})

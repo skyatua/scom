@@ -41,11 +41,13 @@ int main(int argc, char **argv)
 
 	printf("\nInit modules - OK..\n");
         uint8_t DevAddr = 0x04;  // for DV05
-        float T = 0.0f,
-   	      Rh = 0.0f;
+//        float T = 0.0f,
+  // 	      Rh = 0.0f;
         uint8_t * pData = (void*)0;
         uint32_t kk = 0;
-        
+        uint8_t status = 0,
+                is_init_var = 0;        
+     
         //signal(SIGALRM, timerFunc);
         //alarm(60);
 	while(1)
@@ -61,10 +63,12 @@ int main(int argc, char **argv)
 		USART6_IRQHandler();
    
 		//		ND_GetValues();
-                 
-		if (GetDevOnlineStatus(DevAddr))
+                status = GetDevOnlineStatus(DevAddr);
+                is_init_var = GetVariableStatus(DevAddr, 0x00);
+   
+		//if ( status )
 		  {
-		    if (GetVariableStatus(DevAddr, 0x00) == VARIABLE_IS_INIT_STATUS)
+		    if (is_init_var == VARIABLE_IS_INIT_STATUS)
 		      {
 			if (pData == (void*)0)
 			  {
@@ -96,14 +100,19 @@ int main(int argc, char **argv)
 			    //	formStrQuery(&T, &Rh);
 			    //	insertData();
 			    //}
-			    Archive_SaveRecord();
-
+			    //Archive_SaveRecord();
+			    
 			    //if (mod == 1)
 			    //if ((kk++ % 1000)==0)
-			    //  printf("T= %3.1f  ,Rh= %3.0f \r", T, Rh);
+			    //  printf("\nT= %3.1f  ,Rh= %3.0f", T, Rh);
 			  }
     	                }
 		  }  
+
+		Archive_SaveRecord(); 
+                if ((kk++ % 10000)==0) 
+		  printf("\nstatus= %d, init=%d,  T= %3.1f  ,Rh= %3.0f",status, is_init_var,  T, Rh);
+
 #ifdef __LINX__
                 usleep(1000);
 #endif
