@@ -1,1 +1,0 @@
-/home/pi/progs/sc1/scom/CMakeFiles/mtbus.dir
