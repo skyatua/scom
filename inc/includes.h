@@ -13,7 +13,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <math.h>
+
+#ifdef __LINX__
 #include "/usr/include/mysql/mysql.h"
+#endif
 
 
 #include "main.h"

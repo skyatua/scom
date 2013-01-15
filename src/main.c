@@ -2,8 +2,6 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include <sys/ioctl.h>
-#include <termios.h>
 
 extern void USART6_IRQHandler(void);
 

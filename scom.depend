@@ -9,10 +9,13 @@
 1357201696 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\connect.c
 	"../inc/includes.h"
 
-1357834646 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\includes.h
+1358236072 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\includes.h
 	<stdint.h>
 	<stdio.h>
 	<unistd.h>
+	<math.h>
+	"/usr/include/mysql/mysql.h"
+	"main.h"
 	"MTBus.h"
 	"UartManager.h"
 	"CHS.h"
@@ -27,6 +30,7 @@
 	"UartManager.h"
 	"UartDriver.h"
 	"netdev.h"
+	"archive.h"
 
 1336649981 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\mtbus.h
 	"MTBusConfiguration.h"
@@ -85,7 +89,7 @@
 1352997817 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\mtbusserver.c
 	"../inc/includes.h"
 
-1357832642 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\netdev.c
+1358235738 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\netdev.c
 	"../inc/includes.h"
 
 1352819450 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\netvaraccesmanager.c
@@ -97,7 +101,7 @@
 1352906582 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\terabus.c
 	"../inc/includes.h"
 
-1357121286 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\uartdriver.c
+1357834341 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\uartdriver.c
 	"../inc/includes.h"
 	<windows.h>
 	<unistd.h>
@@ -107,8 +111,18 @@
 1356697879 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\uartmanager.c
 	"../inc/includes.h"
 
-1357833431 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\main.c
+1358236091 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\main.c
 	"../inc/includes.h"
 	<stdio.h>
 	<unistd.h>
+
+1358235738 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\main.h
+
+1358235738 f:\_kostik\vcc_work\gcc\codeblock\scom\inc\archive.h
+
+1358235738 source:f:\_kostik\vcc_work\gcc\codeblock\scom\src\archive.c
+	"../inc/includes.h"
+	<stdlib.h>
+	<signal.h>
+	<time.h>
 
