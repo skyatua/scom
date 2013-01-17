@@ -170,7 +170,7 @@ void StartUart6Manager(void)
 static void UART3_RxEvent(uint8_t *pData, uint8_t len)
 {
 
-#ifdef _DEBUG_UART_
+#ifdef _DEBUG_UART1_
 	 printf("\n<- ");
 	  uint8_t aa = 0;
 	  for (aa = 0; aa < len; aa++)

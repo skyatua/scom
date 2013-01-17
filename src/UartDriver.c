@@ -557,7 +557,7 @@ if(0x03 == descriptor->chanell)
   uart3.RxLast=0;
   uart3.hSerial = -1;
 
-  int hSerial = open("/dev/ttyAMA0", O_RDWR | O_NOCTTY | O_NDELAY);
+  int hSerial = open("/dev/ttyUSB0", O_RDWR | O_NOCTTY | O_NDELAY);
   if (hSerial == -1)
   {
 	  return -1;
@@ -579,13 +579,17 @@ if(0x03 == descriptor->chanell)
   cfsetospeed(&options, (uint32_t)descriptor->baudrate );
   options.c_cflag = (uint32_t)descriptor->baudrate |
                      descriptor->dataLength |
-					 CLOCAL |
-					 CREAD;
-  options.c_iflag = IGNPAR |
-                     ICRNL;
-  options.c_oflag = 0;
+		     CLOCAL |
+		     CREAD;
+  options.c_lflag &= ~(ICANON | ECHO | ECHOE | ISIG);
+  options.c_iflag =  IGNPAR |
+                   ICRNL;
+  //options.c_iflag |= (INPCK | ISTRIP );
+  //options.c_iflag &= ~(IXON | IXOFF | IXANY);
+
+  options.c_oflag &= ~( OPOST );
   tcflush(hSerial, TCIFLUSH);
-  tcsetattr(hSerial, TCSANOW, &options);
+  tcsetattr(hSerial, TCSAFLUSH, &options);
 
   uart3.hSerial = hSerial;
   uart3.InitComplete=1;
@@ -623,14 +627,22 @@ if(0x06 == descriptor->chanell)
   cfsetispeed(&options, (uint32_t)descriptor->baudrate );
   cfsetospeed(&options, (uint32_t)descriptor->baudrate );
   options.c_cflag = (uint32_t)descriptor->baudrate |
-                     descriptor->dataLength |
-					 CLOCAL |
-					 CREAD;
+                    descriptor->dataLength |
+		    CLOCAL |
+		    CREAD;
+
+  options.c_lflag &= ~(ICANON |
+                       ECHO |
+		       ECHOE |
+		       ISIG );
+
   options.c_iflag = IGNPAR |
                      ICRNL;
+
   options.c_oflag = 0;
   tcflush(hSerial, TCIFLUSH);
-  tcsetattr(hSerial, TCSANOW, &options);
+  tcsetattr(hSerial, TCSANOW, //TCSAFLUSH,//TCSANOW,
+                     &options);
 
   uart6.hSerial = hSerial;
   uart6.InitComplete=1;
