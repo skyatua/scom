@@ -13,6 +13,9 @@ typedef struct sSens
   uint8_t ParDevAddr;
   int8_t  rssi;
   uint8_t lqi;
+
+  float Inclin;
+  float Offset;
 }tSens;
 
 extern tSens Sensors[];

@@ -36,7 +36,7 @@ void Archive_SaveRecord( void )
   if (timeSet == 1)
     {
       timeSet = 0;
-      printf("\nSave record...");
+      printf("Save record...\n");
       getSDtTm(); 
       int idx;
       for (idx = 0; idx < ND_CNT; idx++)

@@ -28,15 +28,28 @@ int main(int argc, char **argv)
         uint8_t idx = 0;
         
         for ( idx = 0; idx < ND_CNT; idx++) 
-	  {  Sensors[idx].DevAddr = 0; }
+	  {
+	    Sensors[idx].DevAddr = 0;
+	    Sensors[idx].Inclin = 1.0f;
+	    Sensors[idx].Offset = 0.0f;
+	  }
 
         // ZigBit 
         Sensors[0].DevAddr = 16;
+        Sensors[0].Offset = 0.0f;
+	Sensors[0].Inclin = 1.0f;
+  
         Sensors[1].DevAddr = 21;
+	Sensors[1].Offset = -0.2f;
+	Sensors[1].Inclin = 1.0f;
+
         Sensors[2].DevAddr = 22;
+	Sensors[2].Offset = 0.1f;
+        Sensors[2].Inclin = 1.0f;
+
 	Sensors[3].DevAddr = 23;
-
-
+        Sensors[3].Offset = 0.0f;
+        Sensors[3].Inclin = 1.0f;
         
 	while(1)
 	{
@@ -67,6 +80,9 @@ int main(int argc, char **argv)
 		    
 		    SwitchAcces(Sensors[idx].DevAddr, 0x00, HOST_PORT_2);
 		    Sensors[idx].T[0] = (float)(*(int16_t*)(GetDataPointer())/10.0f);
+		    Sensors[idx].T[0] += Sensors[idx].Offset;
+		    Sensors[idx].T[0] *= Sensors[idx].Inclin;
+
                     Sensors[idx].T[1] = (float)(*(int16_t*)(GetDataPointer()+2));  
                     
                     SwitchAcces(Sensors[idx].DevAddr, 0x01, HOST_PORT_2);
@@ -89,17 +105,18 @@ int main(int argc, char **argv)
 	      {
 		if ( Sensors[idx].Online == 0 ) continue;
 		
-		printf("\nAddr = %d, status = %d, T = %3.1f, Parent = %d, rssi = %d, lqi = %3.1f ",
+		printf("Addr = %d, status = %d, T = %3.1f, TTL = %5.0f, Parent = %d, rssi = %d, lqi = %3.1f\n",
 		       Sensors[idx].DevAddr,
 		       Sensors[idx].Online,
 		       Sensors[idx].T[0],
+		       Sensors[idx].T[1],
 		       Sensors[idx].ParDevAddr,
 		       Sensors[idx].rssi,
 		       (float)(Sensors[idx].lqi)/255.0f);
 	      }
 	  }
 #ifdef __LINX__
-                usleep(1000);
+                usleep(5000); //~5ms
 #endif
 		//test_wr();
 	}
